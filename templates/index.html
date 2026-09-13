@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pLitter River — River Litter Detection</title>
+  <meta name="description" content="Upload a river photo and detect plastic litter using AI-powered computer vision." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- ── Animated background blobs ── -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- ── Header ── -->
+  <header id="app-header">
+    <div class="logo">
+      <span class="logo-icon">🌊</span>
+      <span class="logo-text">pLitter<span class="accent">River</span></span>
+    </div>
+    <span class="badge">Powered by OpenCV + AI</span>
+  </header>
+
+  <main>
+    <!-- ── Hero ── -->
+    <section id="hero" class="glass-card hero-section">
+      <h1>River Litter Detection System</h1>
+      <p class="subtitle">Upload a photo of a river and our AI will detect plastic litter, debris, and waste — helping keep our waterways clean.</p>
+    </section>
+
+    <!-- ── Upload Area ── -->
+    <section id="upload-section" class="glass-card">
+      <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Upload image">
+        <div class="drop-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <p class="drop-text">Drag &amp; drop an image here or <span class="browse">browse</span></p>
+        <p class="drop-hint">PNG, JPG, JPEG, BMP, WEBP — max 16 MB</p>
+        <input type="file" id="file-input" accept="image/*" hidden />
+      </div>
+
+      <!-- Preview -->
+      <div id="preview-wrapper" class="preview-wrapper hidden">
+        <img id="preview-img" alt="Uploaded preview" />
+        <div class="preview-info">
+          <span id="file-name" class="file-name"></span>
+          <button id="clear-btn" class="btn btn-ghost" type="button">✕ Remove</button>
+        </div>
+      </div>
+
+      <button id="detect-btn" class="btn btn-primary hidden" type="button">
+        <span class="btn-label">🔍 Detect Litter</span>
+        <span class="spinner hidden"></span>
+      </button>
+    </section>
+
+    <!-- ── Results ── -->
+    <section id="results-section" class="glass-card results hidden">
+      <h2>Detection Results</h2>
+
+      <div id="summary-bar" class="summary-bar"></div>
+
+      <div class="images-compare">
+        <div class="img-box">
+          <span class="img-label">Original</span>
+          <img id="original-result" alt="Original image" />
+        </div>
+        <div class="img-box">
+          <span class="img-label">Detected</span>
+          <img id="detected-result" alt="Detection result" />
+        </div>
+      </div>
+
+      <div id="detections-grid" class="detections-grid"></div>
+    </section>
+
+    <!-- ── Error toast ── -->
+    <div id="toast" class="toast hidden" role="alert"></div>
+  </main>
+
+  <footer>
+    <p>pLitter River &copy; 2026 — Keeping rivers clean with AI</p>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

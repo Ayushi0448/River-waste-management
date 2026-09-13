@@ -1,0 +1,27 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local database and user scans (recreated at runtime)
+instance/
+static/uploads/
+static/results/
+
+# Dataset (download link in README) and duplicate/scratch copies
+roboflow_data/
+temp_runs/
+temp_test/
+runs.zip
+test.zip
+
+# Unrelated / personal files
+projectlens-ai-phase8.zip
+*.code-profile
+.vscode/
+
+# Logs
+*.log
